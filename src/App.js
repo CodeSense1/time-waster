@@ -19,6 +19,10 @@ function App() {
 
   }
 
+  const getwastedTime = (waste) => {
+    return waste
+  }
+
   return (
     <div className="App">
 
@@ -26,6 +30,7 @@ function App() {
 
       <button onClick={handleClick.bind(setWaste, waste)}>Waste time 10 min</button>
       <button onClick={handlenegative.bind(setWaste, waste)}>NOT Waste time 10 min</button>
+      <p>{getwastedTime(waste)} min</p>
     </div>
   );
 }
