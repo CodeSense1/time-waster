@@ -6,6 +6,7 @@ import './App.css';
 function App() {
 
   const [waste, setWaste] = useState(0)
+  const [wasting, setWasting] = useState(false)
 
 
   const handleClick = (e) => {
@@ -23,13 +24,27 @@ function App() {
     return waste
   }
 
+  const startTimer = () => {
+    setWasting(true)
+  }
+
+  const stopTimer = () => {
+    setWasting(false)
+  }
+
+  setInterval(() => {
+    if (wasting) {
+      setWaste(waste + 1)
+    }
+  }, 1000)
+
   return (
     <div className="App">
 
       <h4>Timewaster</h4>
 
-      <button onClick={handleClick.bind(setWaste, waste)}>Waste time 10 min</button>
-      <button onClick={handlenegative.bind(setWaste, waste)}>NOT Waste time 10 min</button>
+      <button onClick={startTimer}>start wasting</button>
+      <button onClick={stopTimer}>stop wasting</button>
       <p>{getwastedTime(waste)} min</p>
     </div>
   );
