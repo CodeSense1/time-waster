@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+
+
 function App() {
+
+  const [waste, setWaste] = useState(0)
+
+
+  const handleClick = (e) => {
+    setWaste(waste + 10)
+    console.log(waste)
+  }
+
+  const handlenegative = (e) => {
+    setWaste(waste - 10)
+    console.log(waste)
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <h4>Timewaster</h4>
+
+      <button onClick={handleClick.bind(setWaste, waste)}>Waste time 10 min</button>
+      <button onClick={handlenegative.bind(setWaste, waste)}>NOT Waste time 10 min</button>
     </div>
   );
 }
