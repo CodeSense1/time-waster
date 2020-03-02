@@ -45,7 +45,7 @@ function App() {
 
       <button onClick={startTimer}>start wasting</button>
       <button onClick={stopTimer}>stop wasting</button>
-      <p>{getwastedTime(waste)} min</p>
+      <p>{waste} min</p>
     </div>
   );
 }
