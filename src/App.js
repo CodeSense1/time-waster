@@ -1,53 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
+import WasteMeter from "./client"
+import Dashboard from "./dashboard"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
 function App() {
 
-  const [waste, setWaste] = useState(0)
-  const [wasting, setWasting] = useState(false)
-
-
-  const handleClick = (e) => {
-    setWaste(waste + 10)
-    console.log(waste)
-  }
-
-  const handlenegative = (e) => {
-    setWaste(waste - 10)
-    console.log(waste)
-
-  }
-
-  const getwastedTime = (waste) => {
-    return waste
-  }
-
-  const startTimer = () => {
-    setWasting(true)
-  }
-
-  const stopTimer = () => {
-    setWasting(false)
-  }
-
-  setInterval(() => {
-    if (wasting) {
-      setWaste(waste + 1)
-    }
-  }, 1000)
 
   return (
+
     <div className="App">
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/waste" /></li>
+            <li><Link to="/dashboard" /></li>
+          </ul>
+        </div>
 
-      <h4>Timewaster</h4>
+        <hr />
 
-      <button onClick={startTimer}>start wasting</button>
-      <button onClick={stopTimer}>stop wasting</button>
-      <p>{waste} min</p>
+        <Switch>
+          <Route path="/waste">
+            <WasteMeter />
+          </Route>
+          <Route>
+            <Dashboard />
+          </Route>
+        </Switch>
+
+      </Router>
     </div>
-  );
+  )
 }
 
 export default App;
