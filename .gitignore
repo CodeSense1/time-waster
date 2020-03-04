@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+#/build
+# En tiedä onko fiksua, mutta näin tehdään
 
 # misc
 .DS_Store
